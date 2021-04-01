@@ -1,0 +1,53 @@
+package com.javarush.task.task10.task1015;
+
+import java.util.ArrayList;
+
+/* 
+Массив списков строк
+*/
+
+public class Solution {
+    public static void main(String[] args) {
+        ArrayList<String>[] arrayOfStringList = createList();
+        printList(arrayOfStringList);
+    }
+
+    public static ArrayList<String>[] createList() {
+        ArrayList<String> list = new ArrayList<>();//создали список строкового типа
+        ArrayList<String> list2 = new ArrayList<>();
+        ArrayList<String> list3 = new ArrayList<>();
+
+        list.add("List1");//добавили в список параметр типа String
+        list2.add("List2");
+        list3.add("List3");
+
+        ArrayList<String>[] array = new ArrayList[3];//создали массив типа ArrayList (ArrayList<String>[] array) на три элемента (new ArrayList[3])
+        array[0] = list;//добавили в элемент массива(array[0]) список list
+        array[1] = list2;
+        array[2] = list3;
+
+        return array;
+    }
+    /*
+    ТАК ЖЕ ЕСТЬ ДРУГОЕ РЕШЕНИЕ
+
+    ArrayList<String>[] result = new ArrayList[3];//создали массив типа ArrayList на три элемента.
+
+        result[0] = new ArrayList<>();//добавляем в элемент по номером [0] список (new ArrayList<>())
+        result[1] = new ArrayList<>();
+        result[2] = new ArrayList<>();
+
+        result[0].add("Mama");
+        result[1].add("Mila");
+        result[2].add("Ramu");
+
+        return result;
+     */
+    public static void printList(ArrayList<String>[] arrayOfStringList) {
+        for (ArrayList<String> list : arrayOfStringList) {
+            for (String string : list) {
+                System.out.println(string);
+            }
+        }
+    }
+}
